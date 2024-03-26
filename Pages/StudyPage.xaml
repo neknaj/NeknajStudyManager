@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="NeknajStudyManager.StudyPage">
+
+    <Grid Margin="20,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="タスクID" Grid.Row="0" Grid.Column="0"/>
+        <Entry x:Name="TaskIDEntry" Placeholder="右から選択" Text="" Grid.Row="0" Grid.Column="1" IsReadOnly="True"/>
+        <Label Text="候補" Grid.Row="0" Grid.Column="2"/>
+        <Picker x:Name="TaskIDEntrySuggestions" SelectedIndexChanged="SetTaskIDEntry" Grid.Row="0" Grid.Column="2" WidthRequest="55" TextColor="Transparent">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>新しいタスク</x:String>
+                    <x:String>1</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Label Text="勉強場所" Grid.Row="1" Grid.Column="0"/>
+        <Entry x:Name="PlaceEntry" Placeholder="勉強場所" Text="" Grid.Row="1" Grid.Column="1"/>
+        <Label Text="候補" Grid.Row="1" Grid.Column="2"/>
+        <Picker x:Name="PlaceEntrySuggestions" SelectedIndexChanged="SetPlaceEntry" Grid.Row="1" Grid.Column="2" WidthRequest="55" TextColor="Transparent">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>自宅</x:String>
+                    <x:String>学校</x:String>
+                    <x:String>塾</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Label Text="開始位置" Grid.Row="2" Grid.Column="0"/>
+        <Entry Placeholder="ページ番号等" Text="" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
+
+        <Label Text="終了位置" Grid.Row="3" Grid.Column="0"/>
+        <Entry Placeholder="ページ番号等" Text="" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"/>
+
+        <Label Text="00:00:00" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="Center" VerticalOptions="End" FontSize="40"/>
+        <Button Text="Start" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Margin="20" FontSize="30" CornerRadius="50"></Button>
+
+        <Label Text="開始時刻" Grid.Row="7" Grid.Column="0"/>
+        <Entry Placeholder="自動入力 (yyyy/MM/dd HH:mm)" Text="{Binding EntryDateTimeString}" Grid.Row="7" Grid.Column="1"/>
+
+        <Label Text="終了時刻" Grid.Row="8" Grid.Column="0"/>
+        <Entry Placeholder="自動入力 (yyyy/MM/dd HH:mm)" Text="{Binding EntryDateTimeString}" Grid.Row="8" Grid.Column="1"/>
+
+        <Button Text="勉強を記録する" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" Margin="20" IsEnabled="False"></Button>
+
+    </Grid>
+
+</ContentPage>

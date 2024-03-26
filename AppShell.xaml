@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="NeknajStudyManager.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:NeknajStudyManager"
+    Shell.FlyoutBehavior="Disabled"
+    Title="NeknajStudyManager" Scale="10">
+
+    <TabBar>
+        <Tab Title="Home">
+            <ShellContent Title="Home" Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}"/>
+        </Tab>
+        <Tab Title="Study">
+            <ShellContent Title="Study" Route="StudyPage" ContentTemplate="{DataTemplate local:StudyPage}"/>
+        </Tab>
+        <Tab Title="Data">
+            <ShellContent Title="Task" Route="TaskTablePage" ContentTemplate="{DataTemplate local:TaskTablePage}"/>
+            <ShellContent Title="Process" Route="ProcessTablePage" ContentTemplate="{DataTemplate local:ProcessTablePage}"/>
+        </Tab>
+        <Tab Title="Analysis">
+            <ShellContent Title="Analysis" Route="AnalysisPage" ContentTemplate="{DataTemplate local:AnalysisPage}"/>
+        </Tab>
+    </TabBar>
+
+</Shell>
