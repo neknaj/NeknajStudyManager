@@ -28,7 +28,7 @@ namespace NeknajStudyManager
             if (TaskIDEntrySuggestions.SelectedIndex==0)
             {
                 TaskIDEntry.Text = "";
-                await Navigation.PushModalAsync(new NewTaskPage());
+                await Navigation.PushAsync(new NewTaskPage());
             }
             else if (TaskIDEntrySuggestions.SelectedIndex != -1)
             {

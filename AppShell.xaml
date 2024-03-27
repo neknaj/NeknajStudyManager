@@ -14,13 +14,14 @@
         <Tab Title="Study" Icon="{StaticResource Key=StudyIconImageSource}">
             <ShellContent Title="Study" Route="StudyPage" ContentTemplate="{DataTemplate local:StudyPage}"/>
         </Tab>
-        <Tab Title="Data" Icon="{StaticResource Key=DataIconImageSource}">
-            <ShellContent Title="Task" Route="TaskTablePage" ContentTemplate="{DataTemplate local:TaskTablePage}"/>
-            <ShellContent Title="Process" Route="ProcessTablePage" ContentTemplate="{DataTemplate local:ProcessTablePage}"/>
-        </Tab>
         <Tab Title="Analysis" Icon="{StaticResource Key=AnalysisIconImageSource}">
             <ShellContent Title="Analysis" Route="AnalysisPage" ContentTemplate="{DataTemplate local:AnalysisPage}"/>
         </Tab>
+        <Tab Title="Settings" Icon="{StaticResource Key=SettingsIconImageSource}">
+            <ShellContent Title="Settings" Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}"/>
+        </Tab>
     </TabBar>
 
+    <ShellContent Title="Task" Route="TaskTablePage" ContentTemplate="{DataTemplate local:TaskTablePage}"/>
+    <ShellContent Title="Process" Route="ProcessTablePage" ContentTemplate="{DataTemplate local:ProcessTablePage}"/>
 </Shell>

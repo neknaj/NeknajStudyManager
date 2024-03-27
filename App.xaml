@@ -11,6 +11,7 @@
             <x:String x:Key="StudyIcon">&#xf304;</x:String>
             <x:String x:Key="DataIcon">&#xf1c0;</x:String>
             <x:String x:Key="AnalysisIcon">&#xe473;</x:String>
+            <x:String x:Key="SettingsIcon">&#xf013;</x:String>
 
             <!-- FontImageSourceを追加 -->
             <FontImageSource
@@ -33,7 +34,12 @@
                 FontFamily="FontAwesome-Solid"
                 Color="Black"
                 Glyph="{StaticResource AnalysisIcon}" />
-            
+            <FontImageSource
+                x:Key="SettingsIconImageSource"
+                FontFamily="FontAwesome-Solid"
+                Color="Black"
+                Glyph="{StaticResource SettingsIcon}" />
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
