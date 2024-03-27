@@ -6,7 +6,24 @@
     xmlns:local="clr-namespace:NeknajStudyManager"
     Shell.FlyoutBehavior="Disabled"
     Title="NeknajStudyManager" Scale="10">
+    <Shell.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
+            <Label Grid.Column="1" Text="Study" FontSize="20" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White" />
+
+            <ImageButton 
+                Grid.Column="2" 
+                Source="{StaticResource Key=SettingsIconImageSource}" 
+                HorizontalOptions="End" 
+                Clicked="OpenSettings"
+                Scale="0.75" />
+        </Grid>
+    </Shell.TitleView>
     <TabBar>
         <Tab Title="Home" Icon="{StaticResource Key=HomeIconImageSource}">
             <ShellContent Title="Home" Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}"/>
