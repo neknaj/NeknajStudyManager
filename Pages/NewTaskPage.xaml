@@ -4,85 +4,119 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="NeknajStudyManager.NewTaskPage">
 
-    <Grid Margin="20,20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
+    <ScrollView>
+        <Grid Margin="20,20" RowSpacing="10" ColumnSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
-        <Label Text="タスクID" Grid.Row="0" Grid.Column="0"/>
-        <Entry x:Name="TaskIDEntry" Text="0" Grid.Row="0" Grid.Column="1" IsReadOnly="True"/>
+            <Label Text="タスクID" Grid.Row="0" Grid.Column="0"/>
+            <Entry x:Name="TaskIDEntry" Text="0" Grid.Row="0" Grid.Column="1" IsReadOnly="True"/>
 
-        <Label Text="教科" Grid.Row="1" Grid.Column="0"/>
-        <Entry x:Name="SubjectEntry" Placeholder="教科" Text="" Grid.Row="1" Grid.Column="1"/>
-        <Label Text="候補" Grid.Row="1" Grid.Column="2"/>
-        <Picker x:Name="SubjectEntrySuggestions" SelectedIndexChanged="SetSubjectEntry" Grid.Row="1" Grid.Column="2">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>数学</x:String>
-                    <x:String>国語</x:String>
-                    <x:String>漢字</x:String>
-                    <x:String>現代文</x:String>
-                    <x:String>古文</x:String>
-                    <x:String>漢文</x:String>
-                    <x:String>英語</x:String>
-                    <x:String>理科</x:String>
-                    <x:String>化学</x:String>
-                    <x:String>物理</x:String>
-                    <x:String>生物</x:String>
-                    <x:String>地理</x:String>
-                    <x:String>歴史</x:String>
-                    <x:String>日本史</x:String>
-                    <x:String>世界史</x:String>
-                </x:Array>
-            </Picker.ItemsSource>
-        </Picker>
+            <Label Text="教科" Grid.Row="1" Grid.Column="0"/>
+            <Entry x:Name="SubjectEntry" Placeholder="教科" Text="" Grid.Row="1" Grid.Column="1"/>
+            <Label Text="候補" Grid.Row="1" Grid.Column="2"/>
+            <Picker x:Name="SubjectEntrySuggestions" SelectedIndexChanged="SetSubjectEntry" Grid.Row="1" Grid.Column="2">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>数学</x:String>
+                        <x:String>国語</x:String>
+                        <x:String>国語/漢字</x:String>
+                        <x:String>国語/現代文</x:String>
+                        <x:String>国語/古文</x:String>
+                        <x:String>国語/漢文</x:String>
+                        <x:String>英語</x:String>
+                        <x:String>英語/英単語</x:String>
+                        <x:String>英語/英文法</x:String>
+                        <x:String>英語/長文読解</x:String>
+                        <x:String>理科</x:String>
+                        <x:String>理科/化学</x:String>
+                        <x:String>理科/物理</x:String>
+                        <x:String>理科/生物</x:String>
+                        <x:String>社会</x:String>
+                        <x:String>社会/地理</x:String>
+                        <x:String>社会/歴史</x:String>
+                        <x:String>社会/歴史/日本史</x:String>
+                        <x:String>社会/歴史/世界史</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
 
-        <Label Text="問題集等" Grid.Row="2" Grid.Column="0"/>
-        <Entry Placeholder="ISBN" Text="" Keyboard="Numeric" Grid.Row="2" Grid.Column="1" IsVisible="True" x:Name="TaskNameEntry_ISBN"/>
-        <Entry Placeholder="名前" Text="" Keyboard="Numeric" Grid.Row="2" Grid.Column="1" IsVisible="False" x:Name="TaskNameEntry_Name"/>
-        <Label Text="切替" Grid.Row="2" Grid.Column="2"/>
-        <Picker x:Name="TaskNameEntryTypeSelector" SelectedIndexChanged="ChangeTaskNameEntryType" Grid.Row="2" Grid.Column="2">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>ISBN</x:String>
-                    <x:String>名前</x:String>
-                </x:Array>
-            </Picker.ItemsSource>
-        </Picker>
+            <Label Text="問題集等" Grid.Row="2" Grid.Column="0"/>
+            <Entry Placeholder="ISBN" Text="" Keyboard="Numeric" Grid.Row="2" Grid.Column="1" IsVisible="True" x:Name="TaskNameEntry_ISBN"/>
+            <Entry Placeholder="名前" Text="" Grid.Row="2" Grid.Column="1" IsVisible="False" x:Name="TaskNameEntry_Name"/>
+            <Label Text="切替" Grid.Row="2" Grid.Column="2"/>
+            <Picker x:Name="TaskNameEntryTypeSelector" SelectedIndexChanged="ChangeTaskNameEntryType" Grid.Row="2" Grid.Column="2">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>ISBN</x:String>
+                        <x:String>名前</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
 
-        <Label Text="期限" Grid.Row="3" Grid.Column="0"/>
-        <Entry Placeholder="yyyy/MM/dd" Grid.Row="3" Grid.Column="1"/>
+            <Label Text="期限" Grid.Row="3" Grid.Column="0"/>
+            <DatePicker x:Name="TimeLimitEntry" Grid.Row="3" Grid.Column="1" FontSize="20" HorizontalOptions="FillAndExpand"/>
 
-        <Label Text="期限の種類" Grid.Row="4" Grid.Column="0"/>
-        <Entry x:Name="TimeLimitTypeEntry" Placeholder="期限の種類" Text="" Grid.Row="4" Grid.Column="1"/>
-        <Label Text="候補" Grid.Row="4" Grid.Column="2"/>
-        <Picker x:Name="TimeLimitTypeEntrySuggestions" SelectedIndexChanged="SetTimeLimitTypeEntry" Grid.Row="4" Grid.Column="2">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>絶対</x:String>
-                    <x:String>目標</x:String>
-                </x:Array>
-            </Picker.ItemsSource>
-        </Picker>
+            <Label Text="期限の種類" Grid.Row="4" Grid.Column="0"/>
+            <Entry x:Name="TimeLimitTypeEntry" Placeholder="期限の種類" Text="" Grid.Row="4" Grid.Column="1"/>
+            <Label Text="候補" Grid.Row="4" Grid.Column="2"/>
+            <Picker x:Name="TimeLimitTypeEntrySuggestions" SelectedIndexChanged="SetTimeLimitTypeEntry" Grid.Row="4" Grid.Column="2">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>絶対</x:String>
+                        <x:String>目標</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
 
-        <Button Text="タスクを追加する" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" Margin="20" IsEnabled="False"></Button>
+            <Label Text="起源" Grid.Row="5" Grid.Column="0"/>
+            <Entry x:Name="TaskOriginEntry" Placeholder="起源" Text="" Grid.Row="5" Grid.Column="1"/>
+            <Label Text="候補" Grid.Row="5" Grid.Column="2"/>
+            <Picker x:Name="TaskOriginEntrySuggestions" SelectedIndexChanged="SetTaskOriginEntry" Grid.Row="5" Grid.Column="2">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>自習</x:String>
+                        <x:String>学校課題</x:String>
+                        <x:String>塾課題</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
 
-    </Grid>
+            <Label Text="形体" Grid.Row="6" Grid.Column="0"/>
+            <Entry x:Name="TaskFormEntry" Placeholder="形体" Text="" Grid.Row="6" Grid.Column="1"/>
+            <Label Text="候補" Grid.Row="6" Grid.Column="2"/>
+            <Picker x:Name="TaskFormEntrySuggestions" SelectedIndexChanged="SetTaskFormEntry" Grid.Row="6" Grid.Column="2">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>問題集</x:String>
+                        <x:String>参考書</x:String>
+                        <x:String>教科書</x:String>
+                        <x:String>プリント</x:String>
+                        <x:String>プリント集</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Button Text="タスクを追加する" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" Margin="20" IsEnabled="False"></Button>
+
+        </Grid>
+    </ScrollView>
 
 </ContentPage>

@@ -42,6 +42,22 @@ namespace NeknajStudyManager
             }
             TimeLimitTypeEntrySuggestions.SelectedIndex = -1;
         }
+        public void SetTaskOriginEntry(object sender, EventArgs e)
+        {
+            if (TaskOriginEntrySuggestions.SelectedIndex != -1)
+            {
+                TaskOriginEntry.Text = TaskOriginEntrySuggestions.SelectedItem.ToString();
+            }
+            TaskOriginEntrySuggestions.SelectedIndex = -1;
+        }
+        public void SetTaskFormEntry(object sender, EventArgs e)
+        {
+            if (TaskFormEntrySuggestions.SelectedIndex != -1)
+            {
+                TaskFormEntry.Text = TaskFormEntrySuggestions.SelectedItem.ToString();
+            }
+            TaskFormEntrySuggestions.SelectedIndex = -1;
+        }
 
     }
 
