@@ -55,8 +55,8 @@
             <Label Text="終了位置" Grid.Row="3" Grid.Column="0"/>
             <Entry Placeholder="ページ番号等" Text="" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"/>
 
-            <Label Text="00:00:00" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,25,0,0" HorizontalOptions="Center" VerticalOptions="End" FontSize="40"/>
-            <Button Text="Start" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Margin="20" FontSize="30" CornerRadius="50"></Button>
+            <Label x:Name="TimeLabel" Text="00:00:00" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,25,0,0" HorizontalOptions="Center" VerticalOptions="End" FontSize="40"/>
+            <Button Text="Start" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Margin="20" FontSize="30" CornerRadius="50" Clicked="OnStartButtonClicked"></Button>
 
             <Label Text="開始時刻" Grid.Row="7" Grid.Column="0"/>
             <Entry Placeholder="自動入力 (yyyy/MM/dd HH:mm)" Text="{Binding EntryDateTimeString}" Grid.Row="7" Grid.Column="1"/>

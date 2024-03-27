@@ -5,6 +5,35 @@
              x:Class="NeknajStudyManager.App">
     <Application.Resources>
         <ResourceDictionary>
+
+            <!-- アイコンを追加 -->
+            <x:String x:Key="HomeIcon">&#xf015;</x:String>
+            <x:String x:Key="StudyIcon">&#xf304;</x:String>
+            <x:String x:Key="DataIcon">&#xf1c0;</x:String>
+            <x:String x:Key="AnalysisIcon">&#xe473;</x:String>
+
+            <!-- FontImageSourceを追加 -->
+            <FontImageSource
+                x:Key="HomeIconImageSource"
+                FontFamily="FontAwesome-Solid"
+                Color="Black"
+                Glyph="{StaticResource HomeIcon}" />
+            <FontImageSource
+                x:Key="StudyIconImageSource"
+                FontFamily="FontAwesome-Solid"
+                Color="Black"
+                Glyph="{StaticResource StudyIcon}" />
+            <FontImageSource
+                x:Key="DataIconImageSource"
+                FontFamily="FontAwesome-Solid"
+                Color="Black"
+                Glyph="{StaticResource DataIcon}" />
+            <FontImageSource
+                x:Key="AnalysisIconImageSource"
+                FontFamily="FontAwesome-Solid"
+                Color="Black"
+                Glyph="{StaticResource AnalysisIcon}" />
+            
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />

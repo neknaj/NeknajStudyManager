@@ -11,6 +11,9 @@ namespace NeknajStudyManager
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
+                    fonts.AddFont("Font Awesome 6 Free-Regular-400.otf", "FontAwesome-Regular");
+                    fonts.AddFont("Font Awesome 6 Free-Solid-900.otf", "FontAwesome-Solid");
+
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });

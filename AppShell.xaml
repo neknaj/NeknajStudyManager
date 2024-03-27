@@ -8,17 +8,17 @@
     Title="NeknajStudyManager" Scale="10">
 
     <TabBar>
-        <Tab Title="Home">
+        <Tab Title="Home" Icon="{StaticResource Key=HomeIconImageSource}">
             <ShellContent Title="Home" Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}"/>
         </Tab>
-        <Tab Title="Study">
+        <Tab Title="Study" Icon="{StaticResource Key=StudyIconImageSource}">
             <ShellContent Title="Study" Route="StudyPage" ContentTemplate="{DataTemplate local:StudyPage}"/>
         </Tab>
-        <Tab Title="Data">
+        <Tab Title="Data" Icon="{StaticResource Key=DataIconImageSource}">
             <ShellContent Title="Task" Route="TaskTablePage" ContentTemplate="{DataTemplate local:TaskTablePage}"/>
             <ShellContent Title="Process" Route="ProcessTablePage" ContentTemplate="{DataTemplate local:ProcessTablePage}"/>
         </Tab>
-        <Tab Title="Analysis">
+        <Tab Title="Analysis" Icon="{StaticResource Key=AnalysisIconImageSource}">
             <ShellContent Title="Analysis" Route="AnalysisPage" ContentTemplate="{DataTemplate local:AnalysisPage}"/>
         </Tab>
     </TabBar>
