@@ -19,6 +19,8 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -114,7 +116,44 @@
                 </Picker.ItemsSource>
             </Picker>
 
-            <Button Text="タスクを追加する" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" Margin="20" IsEnabled="False"></Button>
+            <Label Text="開始位置" Grid.Row="7" Grid.Column="0"/>
+            <Entry Placeholder="ページ番号等" Text="" Keyboard="Numeric" Grid.Row="7" Grid.Column="1"/>
+
+            <Label Text="終了位置" Grid.Row="8" Grid.Column="0"/>
+            <Entry Placeholder="ページ番号等" Text="" Keyboard="Numeric" Grid.Row="8" Grid.Column="1"/>
+
+            <Label Text="単位" Grid.Row="9" Grid.Column="0"/>
+            <Entry x:Name="TaskUnitEntry" Placeholder="位置の単位" Text="" Grid.Row="9" Grid.Column="1"/>
+            <Label Text="候補" Grid.Row="9" Grid.Column="2"/>
+            <Picker x:Name="TaskUnitEntrySuggestions" SelectedIndexChanged="SetTaskUnitEntry" Grid.Row="9" Grid.Column="2">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>ページ</x:String>
+                        <x:String>枚</x:String>
+                        <x:String>問</x:String>
+                        <x:String>語</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="状態" Grid.Row="10" Grid.Column="0"/>
+            <Entry x:Name="TaskStatusEntry" Placeholder="タスクの状態" Text="" Grid.Row="10" Grid.Column="1"/>
+            <Label Text="候補" Grid.Row="10" Grid.Column="2"/>
+            <Picker x:Name="TaskStatusEntrySuggestions" SelectedIndexChanged="SetTaskStatusEntry" Grid.Row="10" Grid.Column="2">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>予約</x:String>
+                        <x:String>実行中</x:String>
+                        <x:String>中断</x:String>
+                        <x:String>中止</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="メモ" Grid.Row="11" Grid.Column="0"/>
+            <Entry Placeholder="メモ" Text="" Keyboard="Numeric" Grid.Row="11" Grid.Column="1" IsVisible="True"/>
+
+            <Button Text="タスクを追加する" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="3" Margin="20" IsEnabled="False"></Button>
 
         </Grid>
     </ScrollView>

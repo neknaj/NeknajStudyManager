@@ -59,6 +59,23 @@ namespace NeknajStudyManager
             TaskFormEntrySuggestions.SelectedIndex = -1;
         }
 
+        public void SetTaskUnitEntry(object sender, EventArgs e)
+        {
+            if (TaskUnitEntrySuggestions.SelectedIndex != -1)
+            {
+                TaskUnitEntry.Text = TaskUnitEntrySuggestions.SelectedItem.ToString();
+            }
+            TaskUnitEntrySuggestions.SelectedIndex = -1;
+        }
+        public void SetTaskStatusEntry(object sender, EventArgs e)
+        {
+            if (TaskStatusEntrySuggestions.SelectedIndex != -1)
+            {
+                TaskStatusEntry.Text = TaskStatusEntrySuggestions.SelectedItem.ToString();
+            }
+            TaskStatusEntrySuggestions.SelectedIndex = -1;
+        }
+
     }
 
 }
