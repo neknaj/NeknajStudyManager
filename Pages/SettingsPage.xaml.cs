@@ -11,6 +11,10 @@
         {
             await Navigation.PushAsync(new TaskTablePage());
         }
+        async void GoToProcessTablePage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ProcessTablePage());
+        }
     }
 
 }

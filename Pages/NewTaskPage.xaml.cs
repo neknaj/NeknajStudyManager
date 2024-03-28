@@ -7,6 +7,7 @@ namespace NeknajStudyManager
         public NewTaskPage()
         {
             InitializeComponent();
+            NavigationPage.SetTitleView(this, new Button { Text = "Back", Command = new Command(() => Navigation.PopAsync()) });
         }
 
 

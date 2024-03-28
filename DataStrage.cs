@@ -13,7 +13,7 @@ namespace NeknajStudyManager
         public DateTime TimeLimit { get; set; }
         public string? TimeLimitType { get; set; }
         public string? ISBN { get; set; }
-        public string? Nmae { get; set; }
+        public string? Name { get; set; }
         public int Range_start { get; set; }
         public int Range_end { get; set; }
         public string? Range_unit { get; set; }
@@ -38,17 +38,41 @@ namespace NeknajStudyManager
     {
         private readonly SQLiteAsyncConnection _database;
 
-        public DataStrage(string dbPath)
+        public DataStrage()
         {
+            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "saveddata.db");
             _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<TaskTable>().Wait();
-            _database.CreateTableAsync<ProcessTable>().Wait();
+            if (_database.TableMappings.Any(m => m.TableName == "TaskTable"))
+            {
+                Console.WriteLine("テーブル TaskTable が存在します。");
+            }
+            else
+            {
+                Console.WriteLine("テーブル TaskTable が存在しません。");
+                _database.CreateTableAsync<TaskTable>().Wait();
+            }
+            if (_database.TableMappings.Any(m => m.TableName == "ProcessTable"))
+            {
+                Console.WriteLine("テーブル ProcessTable が存在します。");
+            }
+            else
+            {
+                Console.WriteLine("テーブル ProcessTable が存在しません。");
+                _database.CreateTableAsync<ProcessTable>().Wait();
+            }
         }
 
         // TaskTableの操作メソッド
         public async Task<int> InsertTaskAsync(TaskTable item)
         {
             return await _database.InsertAsync(item);
+        }
+
+        public async Task<int> ClearTaskAsync()
+        {
+            await _database.ExecuteAsync("DROP TABLE IF EXISTS TaskTable;");
+            await _database.CreateTableAsync<TaskTable>();
+            return 0;
         }
 
         public async Task<List<TaskTable>> GetAllTasksAsync()
@@ -60,6 +84,12 @@ namespace NeknajStudyManager
         public async Task<int> InsertProcessAsync(ProcessTable item)
         {
             return await _database.InsertAsync(item);
+        }
+        public async Task<int> ClearProcessAsync()
+        {
+            await _database.ExecuteAsync("DROP TABLE IF EXISTS ProcessTable;");
+            await _database.CreateTableAsync<ProcessTable>();
+            return 0;
         }
 
         public async Task<List<ProcessTable>> GetAllProcessesAsync()
